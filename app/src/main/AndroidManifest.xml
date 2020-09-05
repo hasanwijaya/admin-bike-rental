@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.CustomersActivity"></activity>
+        <activity android:name=".activity.DetailCustomerActivity"></activity>
+        <activity android:name=".activity.CustomersActivity" />
         <activity
             android:name=".activity.SplashscreenActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">

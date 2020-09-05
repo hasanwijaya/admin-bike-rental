@@ -67,6 +67,8 @@ public class CustomersActivity extends AppCompatActivity {
                                     customer.setName(item.getString("name"));
                                     customer.setPhone(item.getString("phone"));
                                     customer.setNoktp(item.getString("no_ktp"));
+                                    customer.setEmail(item.getString("email"));
+                                    customer.setAddress(item.getString("address"));
                                     list.add(customer);
                                 }
 
@@ -92,8 +94,14 @@ public class CustomersActivity extends AppCompatActivity {
         customerAdapter.setOnItemClickCallback(new CustomerAdapter.OnItemClickCallback() {
             @Override
             public void onItemClicked(Customer data) {
-                Log.d("data", String.valueOf(data.getId()));
+                showSelectedCustomer(data);
             }
         });
+    }
+
+    private void showSelectedCustomer(Customer customer) {
+        Intent intent = new Intent(this, DetailCustomerActivity.class);
+        intent.putExtra("Item Data", customer);
+        startActivity(intent);
     }
 }

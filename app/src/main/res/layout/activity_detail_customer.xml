@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="@android:color/white">
+
+    <EditText
+        android:id="@+id/edt_name"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Full name"
+        android:drawableLeft="@drawable/ic_person_grey"
+        android:drawablePadding="10dp"
+        android:background="@null"
+        android:layout_marginBottom="12dp"/>
+
+    <View
+        android:layout_width="350dp"
+        android:layout_height="0.7dp"
+        android:background="#d3d3d3"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:id="@+id/edt_noktp"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="No KTP"
+        android:drawableLeft="@drawable/ic_card"
+        android:drawablePadding="10dp"
+        android:background="@null"
+        android:layout_marginBottom="12dp"/>
+
+    <View
+        android:layout_width="350dp"
+        android:layout_height="0.7dp"
+        android:background="#d3d3d3"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:id="@+id/edt_email"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+        android:drawableLeft="@drawable/ic_email"
+        android:drawablePadding="10dp"
+        android:background="@null"
+        android:layout_marginBottom="12dp"/>
+
+    <View
+        android:layout_width="350dp"
+        android:layout_height="0.7dp"
+        android:background="#d3d3d3"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:id="@+id/edt_phone"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="Phone"
+        android:drawableLeft="@drawable/ic_phone"
+        android:drawablePadding="10dp"
+        android:background="@null"
+        android:layout_marginBottom="12dp"/>
+
+    <View
+        android:layout_width="350dp"
+        android:layout_height="0.7dp"
+        android:background="#d3d3d3"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:id="@+id/edt_address"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Address"
+        android:drawableLeft="@drawable/ic_home"
+        android:drawablePadding="10dp"
+        android:background="@null"
+        android:layout_marginBottom="12dp"/>
+
+    <View
+        android:layout_width="350dp"
+        android:layout_height="0.7dp"
+        android:background="#d3d3d3"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/btn_update"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:background="@drawable/rounded_button"
+        android:textColor="@android:color/white"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_marginBottom="12dp"/>
+
+</LinearLayout>
