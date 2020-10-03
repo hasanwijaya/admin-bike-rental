@@ -35,12 +35,17 @@ public class DetailCustomerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_customer);
 
+        this.setTitle("Detail Customer");
+
         edtName = findViewById(R.id.edt_name);
         edtNoktp = findViewById(R.id.edt_noktp);
         edtEmail = findViewById(R.id.edt_email);
         edtPhone = findViewById(R.id.edt_phone);
         edtAddress = findViewById(R.id.edt_address);
         btnUpdate = findViewById(R.id.btn_update);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         Intent intent = getIntent();
         Customer itemData = intent.getParcelableExtra("Item Data");
@@ -125,5 +130,11 @@ public class DetailCustomerActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

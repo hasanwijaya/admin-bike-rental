@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.DetailCustomerActivity"></activity>
+        <activity android:name=".activity.DetailCustomerActivity"/>
         <activity android:name=".activity.CustomersActivity" />
         <activity
             android:name=".activity.SplashscreenActivity"
@@ -25,7 +25,7 @@
         </activity>
         <activity
             android:name=".activity.LoginActivity"
-            android:label="Login" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".activity.DashboardActivity" />
     </application>
 

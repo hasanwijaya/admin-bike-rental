@@ -1,6 +1,7 @@
 package com.example.adminbikerental.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,9 +39,13 @@ public class CustomersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customers);
 
+        this.setTitle("List Customer");
 
         rvCustomer = findViewById(R.id.rv_customers);
         rvCustomer.setHasFixedSize(true);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         getCustomers();
         showRecycler();
@@ -103,5 +108,11 @@ public class CustomersActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DetailCustomerActivity.class);
         intent.putExtra("Item Data", customer);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
