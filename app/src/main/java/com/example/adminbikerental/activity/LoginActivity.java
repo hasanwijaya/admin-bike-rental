@@ -59,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                     AndroidNetworking.post("http://192.168.43.21/bike_rental/login.php")
                             .addBodyParameter("email", email)
                             .addBodyParameter("password", password)
+                            .addBodyParameter("role", String.valueOf(1))
                             .setPriority(Priority.MEDIUM)
                             .build()
                             .getAsJSONObject(new JSONObjectRequestListener() {
