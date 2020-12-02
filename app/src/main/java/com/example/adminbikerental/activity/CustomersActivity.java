@@ -26,13 +26,15 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import static com.example.adminbikerental.activity.LoginActivity.BASE_URL;
 import static com.example.adminbikerental.activity.SplashscreenActivity.ID;
 import static com.example.adminbikerental.activity.SplashscreenActivity.SHARED_PREFS;
 
 public class CustomersActivity extends AppCompatActivity {
+    public static final String TAG = CustomersActivity.class.getSimpleName();
     private ArrayList<Customer> list = new ArrayList<>();
     private RecyclerView rvCustomer;
-    private CustomerAdapter customerAdapter;
+    public CustomerAdapter customerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +54,7 @@ public class CustomersActivity extends AppCompatActivity {
     }
 
     private void getCustomers() {
-        AndroidNetworking.get("http://192.168.43.21/bike_rental/list_customer.php")
+        AndroidNetworking.get(BASE_URL + "/list_customer.php")
                 .setPriority(Priority.LOW)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
@@ -62,6 +64,7 @@ public class CustomersActivity extends AppCompatActivity {
                             String status = response.getString("status");
 
                             if (status.equals("success")) {
+                                list.clear();
                                 JSONArray result = response.getJSONArray("result");
 
                                 for (int i = 0; i < result.length(); i++) {
@@ -86,7 +89,7 @@ public class CustomersActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(ANError anError) {
-
+                        Log.e(TAG, "onError: " + anError.getLocalizedMessage());
                     }
                 });
     }
@@ -114,5 +117,11 @@ public class CustomersActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        getCustomers();
     }
 }

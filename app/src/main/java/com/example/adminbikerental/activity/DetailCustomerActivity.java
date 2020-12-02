@@ -21,6 +21,7 @@ import com.example.adminbikerental.model.Customer;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static com.example.adminbikerental.activity.LoginActivity.BASE_URL;
 import static com.example.adminbikerental.activity.SplashscreenActivity.ID;
 import static com.example.adminbikerental.activity.SplashscreenActivity.SHARED_PREFS;
 
@@ -94,7 +95,7 @@ public class DetailCustomerActivity extends AppCompatActivity {
                 }
 
                 if (!isEmpty) {
-                    AndroidNetworking.post("http://192.168.43.21/bike_rental/update_customer.php")
+                    AndroidNetworking.post(BASE_URL + "/update_customer.php")
                             .addBodyParameter("id", id)
                             .addBodyParameter("name", inputName)
                             .addBodyParameter("noktp", inputNoktp)
@@ -123,7 +124,6 @@ public class DetailCustomerActivity extends AppCompatActivity {
 
                                 @Override
                                 public void onError(ANError error) {
-                                    // handle error
                                     Log.e(TAG, "onError: " + error.getLocalizedMessage());
                                 }
                             });

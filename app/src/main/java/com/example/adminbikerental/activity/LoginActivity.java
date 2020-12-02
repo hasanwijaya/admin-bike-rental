@@ -24,6 +24,7 @@ import static com.example.adminbikerental.activity.SplashscreenActivity.ID;
 import static com.example.adminbikerental.activity.SplashscreenActivity.SHARED_PREFS;
 
 public class LoginActivity extends AppCompatActivity {
+    public static final String BASE_URL = "https://4ec8d09c5fec.ngrok.io/bike_rental";
     public static final String TAG = LoginActivity.class.getSimpleName();
     private EditText edtEmail, edtPassword;
     private Button btnLogin;
@@ -56,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 if (!isEmpty) {
-                    AndroidNetworking.post("http://192.168.43.21/bike_rental/login.php")
+                    AndroidNetworking.post(BASE_URL + "/login.php")
                             .addBodyParameter("email", email)
                             .addBodyParameter("password", password)
                             .addBodyParameter("role", String.valueOf(1))
