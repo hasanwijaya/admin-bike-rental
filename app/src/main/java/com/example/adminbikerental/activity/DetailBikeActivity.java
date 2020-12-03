@@ -42,7 +42,7 @@ public class DetailBikeActivity extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     private static final int STORAGE_PERMISSION_CODE = 123;
     private EditText edtColor, edtMerk, edtPrice, edtCode;
-    private Button btnChooseImage, btnUpdate;
+    private Button btnChooseImage, btnUpdate, btnDelete;
     private ImageView ivPreview, ivBike;
     private Uri imageUri;
     private String id;
@@ -56,6 +56,7 @@ public class DetailBikeActivity extends AppCompatActivity {
 
         btnChooseImage = findViewById(R.id.btn_choose_image);
         btnUpdate = findViewById(R.id.btn_update);
+        btnDelete = findViewById(R.id.btn_delete);
         ivPreview = findViewById(R.id.iv_preview);
         edtColor = findViewById(R.id.edt_color);
         edtMerk = findViewById(R.id.edt_merk);
@@ -189,6 +190,37 @@ public class DetailBikeActivity extends AppCompatActivity {
                                 }
                             });
                 }
+            }
+        });
+
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AndroidNetworking.post(BASE_URL + "/delete_bike.php")
+                        .addBodyParameter("id", id)
+                        .setPriority(Priority.MEDIUM)
+                        .build()
+                        .getAsJSONObject(new JSONObjectRequestListener() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                try {
+                                    String status = response.getString("status");
+
+                                    if(status.equals("success")) {
+                                        Intent intent = new Intent(DetailBikeActivity.this, BikesActivity.class);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        startActivity(intent);
+                                    }
+                                } catch(JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+                            @Override
+                            public void onError(ANError anError) {
+                                Log.e(TAG, "onError: " + anError.getLocalizedMessage());
+                            }
+                        });
             }
         });
     }
