@@ -3,6 +3,7 @@ package com.example.adminbikerental.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,6 +18,7 @@ import com.example.adminbikerental.adapter.BikeAdapter;
 import com.example.adminbikerental.adapter.CustomerAdapter;
 import com.example.adminbikerental.model.Bike;
 import com.example.adminbikerental.model.Customer;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,6 +33,7 @@ public class BikesActivity extends AppCompatActivity {
     private ArrayList<Bike> list = new ArrayList<>();
     private RecyclerView rvBikes;
     public BikeAdapter bikeAdapter;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +43,19 @@ public class BikesActivity extends AppCompatActivity {
         this.setTitle("List Bike");
 
         rvBikes = findViewById(R.id.rv_bikes);
-        rvBikes.setHasFixedSize(true);
+        fab = findViewById(R.id.fab);
 
+        rvBikes.setHasFixedSize(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(BikesActivity.this, AddBikeActivity.class);
+                startActivity(intent);
+            }
+        });
 
         getBikes();
         showRecycler();
