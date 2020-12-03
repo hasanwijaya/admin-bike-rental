@@ -14,6 +14,7 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".activity.DetailCustomerActivity"/>
         <activity android:name=".activity.CustomersActivity" />
+        <activity android:name=".activity.BikesActivity" />
         <activity
             android:name=".activity.SplashscreenActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">

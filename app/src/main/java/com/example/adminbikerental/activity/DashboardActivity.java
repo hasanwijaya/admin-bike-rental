@@ -17,7 +17,7 @@ import com.example.adminbikerental.R;
 import static com.example.adminbikerental.activity.SplashscreenActivity.SHARED_PREFS;
 
 public class DashboardActivity extends AppCompatActivity {
-    private CardView cvCustomers;
+    private CardView cvCustomers, cvBikes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         cvCustomers = findViewById(R.id.cv_customers);
+        cvBikes = findViewById(R.id.cv_bikes);
 
         cvCustomers.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +34,12 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
+        cvBikes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DashboardActivity.this, BikesActivity.class));
+            }
+        });
     }
 
     @Override
