@@ -1,7 +1,35 @@
 package com.example.adminbikerental.model;
 
-public class Bike {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Bike implements Parcelable {
     private String id, color, merk, price, code, image;
+
+    public Bike() {
+
+    }
+
+    protected Bike(Parcel in) {
+        id = in.readString();
+        color = in.readString();
+        merk = in.readString();
+        price = in.readString();
+        code = in.readString();
+        image = in.readString();
+    }
+
+    public static final Creator<Bike> CREATOR = new Creator<Bike>() {
+        @Override
+        public Bike createFromParcel(Parcel in) {
+            return new Bike(in);
+        }
+
+        @Override
+        public Bike[] newArray(int size) {
+            return new Bike[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -49,5 +77,20 @@ public class Bike {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
+        parcel.writeString(color);
+        parcel.writeString(merk);
+        parcel.writeString(price);
+        parcel.writeString(code);
+        parcel.writeString(image);
     }
 }

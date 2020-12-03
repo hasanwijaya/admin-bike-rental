@@ -3,7 +3,7 @@
     package="com.example.adminbikerental">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.AddBikeActivity"></activity>
+        <activity android:name=".activity.DetailBikeActivity"></activity>
+        <activity android:name=".activity.AddBikeActivity" />
         <activity android:name=".activity.DetailCustomerActivity" />
         <activity android:name=".activity.CustomersActivity" />
         <activity android:name=".activity.BikesActivity" />

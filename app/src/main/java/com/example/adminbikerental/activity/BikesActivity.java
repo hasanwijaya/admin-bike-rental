@@ -116,8 +116,8 @@ public class BikesActivity extends AppCompatActivity {
     }
 
     private void showSelectedBike(Bike bike) {
-        Intent intent = new Intent(this, DetailCustomerActivity.class);
-//        intent.putExtra("Item Data", bike);
+        Intent intent = new Intent(this, DetailBikeActivity.class);
+        intent.putExtra("Item Data", bike);
         startActivity(intent);
     }
 

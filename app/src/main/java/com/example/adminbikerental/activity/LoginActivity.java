@@ -24,7 +24,7 @@ import static com.example.adminbikerental.activity.SplashscreenActivity.ID;
 import static com.example.adminbikerental.activity.SplashscreenActivity.SHARED_PREFS;
 
 public class LoginActivity extends AppCompatActivity {
-    public static final String BASE_URL = "https://84a82739294c.ngrok.io/bike_rental";
+    public static final String BASE_URL = "https://4df8a6617aef.ngrok.io/bike_rental";
     public static final String TAG = LoginActivity.class.getSimpleName();
     private EditText edtEmail, edtPassword;
     private Button btnLogin;
